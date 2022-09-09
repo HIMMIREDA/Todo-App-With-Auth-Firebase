@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import AuthContext from "../contexts/AuthContext/AuthContext";
 import NavBar from "../components/NavBar";
+
 
 
 function Home() {
@@ -15,7 +16,6 @@ function Home() {
 
   return (
     <>
-      <div className="flex flex-col justify-between h-screen w-screen">
 
       <NavBar items={[
         {
@@ -29,9 +29,11 @@ function Home() {
           action: handleClick
         }
       ]}/>
-      </div>
-        
       
+        
+      <main className="container mx-auto px-3 pb-12 w-screen">
+        <Outlet />
+      </main>
         
     </>
   )
