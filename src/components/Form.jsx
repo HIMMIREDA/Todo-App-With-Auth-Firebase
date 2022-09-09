@@ -42,7 +42,7 @@ function Form() {
           <input
             id="title"
             type="text"
-            className="input w-full  hover:border-primary border-slate-600"
+            className="input w-full  hover:input-primary focus:input-primary border-slate-600"
             placeholder="✍️ Add Task...."
             value={text}
             onChange={(e) => setText(e.target.value)}

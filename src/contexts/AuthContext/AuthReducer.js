@@ -7,7 +7,15 @@ const authReducer = (state, action) => {
                 currentUser: action.payload,
                 loading: false
             };
-            
+        
+        case "UPDATE_PROFILE":
+            return {
+                ...state,
+                currentUser: {
+                    ...state.currentUser,
+                    ...action.payload
+                }
+            };
     }
 }
 

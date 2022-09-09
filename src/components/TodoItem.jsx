@@ -18,7 +18,7 @@ function TodoItem({ item }) {
       className="card shadow-xl flex flex-row items-center justify-between p-10"
       style={{ backgroundColor: item.done ? "#1FB2A6" : "" }}
     >
-      <p className="text-3xl md:text-4xl ">{item.title}</p>
+      <p className="text-3xl md:text-4xl" style={{color: item.done ? "#fff" : ""}}>{item.title}</p>
 
       <div className="flex items-center space-x-8">
         <input

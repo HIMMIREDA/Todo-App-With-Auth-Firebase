@@ -17,7 +17,7 @@ function SignUp() {
   const navigate = useNavigate();
 
   const handleEmailInput = (e) => {
-    setEmail(e.target.value);
+    setEmail(e.target.value.trim());
     const pattern =
       /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g;
     if (pattern.test(e.target.value) === false) {
