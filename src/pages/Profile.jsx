@@ -54,9 +54,11 @@ function Profile() {
 
     try {
       setLoading(true);
-      const [v1, v2, image] = await updateUserProfile(email, password, avatar);
+      const [image,...args] = await updateUserProfile(email, password, avatar);
       let imageURL;
+      console.log(image)
       if (image) {
+        console.log("object");
         imageURL = await getDownloadURL(image.ref);
         await updateProfile(currentUser, {
           photoURL: imageURL,
