@@ -12,7 +12,8 @@ function Profile() {
 
   const [avatar, setAvatar] = useState("");
 
-  const { currentUser, updateUserProfile, dispatch } = useContext(AuthContext);
+  const { currentUser, updateUserProfile, uploadImage, dispatch } =
+    useContext(AuthContext);
 
   const [email, setEmail] = useState(currentUser.email);
 
@@ -51,30 +52,32 @@ function Profile() {
       }
     }
 
-    
-    try{
-      
+    try {
       setLoading(true);
-      const [v1, v2, image] = await updateUserProfile(email,password,avatar);
-  
+      const [v1, v2, image] = await updateUserProfile(email, password, avatar);
       let imageURL;
-      if(image){
+      if (image) {
         imageURL = await getDownloadURL(image.ref);
-        await updateProfile(currentUser,{
-          photoURL: imageURL
+        await updateProfile(currentUser, {
+          photoURL: imageURL,
         });
       }
-      
-      
-      dispatch({type: "UPDATE_PROFILE", payload: {email, photoURL: imageURL??undefined}});
+
+      dispatch({
+        type: "UPDATE_PROFILE",
+        payload: { email, photoURL: imageURL ?? undefined },
+      });
       setSubmitMessage("Profile Updated successfully.");
-
-    }catch(e){
-      setSubmitError("Failed to update profile.");
+      setPassword("");
+    } catch (error) {
+      if (error.code == "auth/requires-recent-login") {
+        setSubmitError("Please reauthenticate this action needs recent login");
+      } else {
+        setSubmitError("Failed to update profile.");
+      }
     }
-    
-    setLoading(false);
 
+    setLoading(false);
   };
 
   return (

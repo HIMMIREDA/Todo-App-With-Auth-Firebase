@@ -15,12 +15,7 @@ import {
 
 import { v4 as uuid4 } from "uuid";
 
-import {
-  deleteObject,
-  ref,
-  uploadBytes,
-  uploadBytesResumable,
-} from "firebase/storage";
+import { deleteObject, ref, uploadBytes } from "firebase/storage";
 
 import { provider } from "../../firebaseConfig";
 import authReducer from "./AuthReducer";
@@ -69,22 +64,15 @@ export function AuthProvider({ children }) {
   const uploadImage = async (image) => {
     if (image) {
       const storageRef = ref(storage, `userimages/${image.name + uuid4()}`);
-      if (state.currentUser.photoURL) {
-        try {
-          const oldImgRef = ref(storage, state.currentUser.photoURL);
-          await deleteObject(oldImgRef);
-        } finally {
-          return uploadBytes(storageRef, image);
-        }
-      }
+      return uploadBytes(storageRef, image);
     }
   };
 
   const updateUserProfile = (email, password, image) => {
     return Promise.all([
+      uploadImage(image),
       updateUserEmail(email),
       updateUserPassword(password),
-      uploadImage(image),
     ]);
   };
 
