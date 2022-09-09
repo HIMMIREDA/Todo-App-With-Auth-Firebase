@@ -1,5 +1,11 @@
+import { useRef } from "react";
 
 function Profile() {
+  
+  const inputFileRef = useRef();
+  const handleClickChangePic = () => {
+    inputFileRef.current.click();
+  }
   return (
       
         
@@ -48,6 +54,7 @@ function Profile() {
                       <button
                         type="button"
                         className="ml-5 rounded-md border  py-2 px-3 text-sm font-medium leading-4  shadow-sm focus:outline-none focus:ring-2  focus:ring-offset-2"
+                        onClick={handleClickChangePic}
                       >
                         Change
                       </button>
@@ -78,7 +85,7 @@ function Profile() {
                             className="relative cursor-pointer rounded-md  focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 "
                           >
                             <span>Upload a file</span>
-                            <input id="file-upload" name="file-upload" type="file" className="sr-only" />
+                            <input id="file-upload" name="file-upload" type="file" className="sr-only" ref={inputFileRef} />
                           </label>
                           <p className="pl-1">or drag and drop</p>
                         </div>

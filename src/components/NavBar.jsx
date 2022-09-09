@@ -10,8 +10,8 @@ function NavBar({ items }) {
   const { currentUser } = useContext(AuthContext);
   return (
     <div className="navbar shadow-lg bg-neutral text-neutral-content">
-      <div className="flex-1">
-        <FaCheckCircle color="purple" size={40} />
+      <div className="flex-1 flex flex-row ">
+        <FaCheckCircle color="#1FB2A6" size={40} />
         <Link to="/" className="btn btn-ghost normal-case text-xl ">
           TODONE
         </Link>
@@ -32,7 +32,7 @@ function NavBar({ items }) {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-primary"
           >
             {items.map(({ title, type, action }, index) => {
               if (type === "link") {

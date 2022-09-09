@@ -13,7 +13,8 @@ function Form() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (text.trim() === "") {
-      return setError("title of a Todo Task cant be empty ! ");
+      setTimeout(()=>setError(""),2000);
+      return setError("Title of a Todo Task cant be empty ! ");
     }
 
     addTask({
@@ -28,7 +29,10 @@ function Form() {
 
   return (
     <>
+    <div className="mb-4">
       {error && <Alert type="error" message={error} />}
+
+    </div>
       <form
         className="card bg-base-100 shadow-xl  space-y-5 pb-4"
         onSubmit={handleSubmit}

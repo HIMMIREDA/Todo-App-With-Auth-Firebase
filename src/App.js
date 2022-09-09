@@ -13,7 +13,7 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <div className="flex flex-col space-y-12 h-screen">
+        <div className="flex flex-col space-y-12" >
           <Routes>
             <Route
               path="/"

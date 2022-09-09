@@ -82,7 +82,7 @@ function SignIn() {
   return currentUser ? (
     <Navigate to="/" />
   ) : (
-    <div className="container flex mx-auto justify-center mt-40">
+    <div className="container flex mx-auto justify-center scro">
       <form className="card bg-base-100 shadow-xl" onSubmit={handleSubmit}>
         <div className="card-body space-y-10 ">
           <h2 className="text-center text-3xl md:text-4xl">SignIn</h2>

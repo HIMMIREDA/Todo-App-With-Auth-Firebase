@@ -10,7 +10,7 @@ function Alert({ type, message }) {
   };
 
   return message && (
-    <div className={`alert ${alertTypes[type]} shadow-lg`}>
+    <div className={`alert ${alertTypes[type]} shadow-lg flex items-center justify-center`}>
       <div>
         <span>{message}</span>
       </div>
