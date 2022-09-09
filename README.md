@@ -1,3 +1,12 @@
+# Todone : is a todo app created using React firebase 
+
+# Live demo 
+
+Open [http://todo-app-with-auth-firebase.vercel.app](http://todo-app-with-auth-firebase.vercel.app)
+
+### `npm install`
+
+to install all dependencies needed
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
